@@ -53,7 +53,7 @@ Future<String> generateResponse(String prompt) async {
 
   // Do something with the response
   Map<String, dynamic> newresponse = jsonDecode(response.body);
-  print(newresponse);
+
   return newresponse['choices'][0]['text'];
 }
 
