@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:learning/constant.dart';
 import 'model.dart';
 
 void main() {
@@ -32,16 +31,16 @@ class ChatPage extends StatefulWidget {
 }
 
 Future<String> generateResponse(String prompt) async {
-  final apiKey = apiSecretKey;
+  const apiKey = apiSecretKey;
 
   var url = Uri.https("api.openai.com", "/v1/completions");
   final response = await http.post(
     url,
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer $apiKey'
+      "Authorization": "Bearer $apiKey"
     },
-    body: jsonEncode({
+    body: json.encode({
       "model": "text-davinci-003",
       "prompt": prompt,
       'temperature': 0,
@@ -54,6 +53,7 @@ Future<String> generateResponse(String prompt) async {
 
   // Do something with the response
   Map<String, dynamic> newresponse = jsonDecode(response.body);
+  print(newresponse);
   return newresponse['choices'][0]['text'];
 }
 
