@@ -1,7 +1,10 @@
-import 'package:example/ui/chat_body.dart';
+import 'package:example/modules/chat/ui/chat_body.dart';
 import 'package:flutter/material.dart';
 
+import 'core/injection/injection_container.dart';
+
 void main() {
+  setup();
   runApp(const MyApp());
 }
 
