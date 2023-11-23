@@ -1,4 +1,4 @@
-enum ChatMessageType { user, bot }
+import '../../../core/util/enum.dart';
 
 class ChatMessage {
   ChatMessage({
